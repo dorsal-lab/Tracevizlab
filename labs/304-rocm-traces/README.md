@@ -51,6 +51,6 @@ To open the trace with the Theia-trace-extension, you will need to build the exa
 
 ## Opening big ROCm traces (several GB) in TraceCompass
 
-If you want to open big traces with the ROCm plugin, you may need some information available in [this document](https://github.com/dorsal-lab/Tracevizlab/blob/master/labs/304-rocm-traces/guidelines_big_traces.md).
+If you want to open big traces with the ROCm plugin, you may need some information available in [this document](guidelines_big_traces.md).
 
 This document contains guidelines to improve the user experience when opening big traces and additional information.
