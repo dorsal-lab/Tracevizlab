@@ -8,6 +8,8 @@ In this lab, you will install Trace Compass on the machine you'll use to view th
 
 ### Task 1: Install Java > 11
 
+#### On Ubuntu machines
+
 Trace Compass is an Eclipse-based application and needs at least Java 11 to run. Make sure you have the correct version.
 
 ```
@@ -20,7 +22,7 @@ OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.18.04, mixed mode, sha
 If the java command is not found or you have an older version of java installed, you need to install java. On an ubuntu machine, it would be
 
 ```
-$ sudo apt-get install openjdk-11-jre
+$ sudo apt install openjdk-11-jre
 $ java -version
 openjdk version "11.0.11" 2021-04-20
 OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.18.04)
@@ -44,28 +46,43 @@ Press <enter> to keep the current choice[*], or type selection number: **2**
 
 - - -
 
-In Windows and MacOs, download the jdk [here](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
+#### On other platforms
+
+In Windows and MacOs, download Temurin OpenJDK from Eclipse Adoptium [here](https://adoptium.net/)
 
 ### Task 2: Get Trace Compass
 
-Go to the [Trace Compass web site](http://tracecompass.org) and click on the big green button to download the latest release of Trace Compass.
+Go to the [Trace Compass web site](http://tracecompass.org) and click on the big blue button to download the latest release of Trace Compass.
 
 Then extract the content of the downloaded archive and simply start trace-compass from the extracted folder
 
 ```
 $ cd ~/Downloads
-$ tar xf trace-compass-3.3.0-20180307-1910-linux.gtk.x86_64.tar.gz
+$ tar xf trace-compass-8.0.0-20220620-0814-linux.gtk.x86_64.tar.gz
 $ cd trace-compass
 $ ./tracecompass
 ```
 
-You should reach an empty workspace. And voilà! You are now ready to import and analyze traces with Trace Compass. Proceed to other labs.
+You should reach an empty workspace. 
 
 ![empty workspace](screenshots/emptyWorkspace.png "Trace Compass empty workspace")
 
+### Task 3: Create an empty Tracing Project
+
+To import and analyse traces with Trace Compass a `Tracing` project is needed to collect such traces together logically.
+
+1. Click on the `Create a new Tracing project` link in the `Project Explorer` view
+2. Enter `Tracing` as the name of the project
+3. Press `Finish`
+
+And voilà! You are now ready to import and analyze traces with Trace Compass. Proceed to other labs.
+
+![empty workspace with tracing project](screenshots/emptyWorkspaceWithTracing.png "Trace Compass empty workspace")
+
+
 - - -
 
-### Task 3: Install the Required Add-Ons For This Tutorial
+### Task 4: Install the Required Add-Ons For This Tutorial
 
 Some labs in this tutorial require additional plugins that are not part of the main Trace Compass tool, but are available through the Trace Compass Incubator repo.  We will add those required plugins now.
 
@@ -76,7 +93,7 @@ To install the plugins, go to the *Tools* -> *Add-ons*
 A dialog will open with a list of plugins that can be installed. For this tutorial, we will needs the following:
 
 * **Generic Callstack (Incubator)**: For various labs
-* **Global Filters (Incubator)**: For various labs
+* **Trace Compass Filters (Incubator)**: For various labs
 * **Trace Compass Scripting Javascript (Incubation)**: For scripting labs
 * **Trace Compass ftrace (Incubation)**: If you have system traces with ftrace
 * **Virtual Machine And Container Analysis (Incubator)**: For advanced topics with containers and virtual machine
@@ -88,11 +105,11 @@ Check those plugins in the *Install* wizard, as shown below. Then click *Finish*
 
 - - -
 
-### Task 4: Import the Traces For The Tutorial
+### Task 5: Import the Traces For The Tutorial
 
 Each lab comes with the instructions to produce the traces yourself, so *if you plan on making your own traces, you may skip this step*. Otherwise, there is an [archive](../TraceCompassTutorialTraces.tgz) that contains all the traces for the labs. You may import it now.
 
-Upon opening Trace Compass, there is a default project named *Tracing* in the ``Project Explorer``, expand it and right-click on the *Traces* folder. Select *Import...* to open the *Trace Import* wizard.
+In Task 3 above you created a project named *Tracing* in the ``Project Explorer``. Expand it and right-click on the *Traces* folder. Select *Import...* to open the *Trace Import* wizard.
 
 ![ImportTraceMenu](screenshots/importTraceMenu.png "Trace Compass Import Trace Menu")
 
