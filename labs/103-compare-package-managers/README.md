@@ -2,7 +2,7 @@
 
 In this lab, we will use kernel tracing to compare the behaviors of common utility that varies from linux distro to linux distro: package managers. They all do the same thing: install a package on the system, but they are quite different. You will also learn to search and filter in time graph views and make bookmarks to identify regions of interest in the trace.
 
-*Pre-requisites*: Have Trace Compass installed and opened. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](http://tracecompass.org) for more information. You should have done the [Trace Navigation in Trace Compass](../101-analyze-system-trace-in-tracecompass) and the [Wget Critical Path](../102-tracing-wget-critical-path) labs.
+*Pre-requisites*: Have Trace Compass installed and opened. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](https://tracecompass.org) for more information. You should have done the [Trace Navigation in Trace Compass](../101-analyze-system-trace-in-tracecompass) and the [Wget Critical Path](../102-tracing-wget-critical-path) labs.
 
 - - -
 
@@ -54,7 +54,7 @@ The following NEW packages will be installed:
 0 upgraded, 1 newly installed, 0 to remove and 45 not upgraded.
 Need to get 46.1 kB of archives.
 After this operation, 106 kB of additional disk space will be used.
-Get:1 http://debian.bhs.mirrors.ovh.net/debian testing/main amd64 tree amd64 1.7.0-5 [46.1 kB]
+Get:1 https://debian.bhs.mirrors.ovh.net/debian testing/main amd64 tree amd64 1.7.0-5 [46.1 kB]
 Fetched 46.1 kB in 0s (136 kB/s)
 Selecting previously unselected package tree.
 (Reading database ... 275002 files and directories currently installed.)

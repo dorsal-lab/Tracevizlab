@@ -2,7 +2,7 @@
 
 In this lab, you will learn to compile for tracing and analyze C/C++ programs, using LTTng UST. We will see the various analyzes available with the builtin lttng userspace libraries.
 
-*Pre-requisites*: Have Trace Compass installed and opened. Have git, lttng and the Generic Callstack add-on on Trace Compass installed. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](http://tracecompass.org) for more information.
+*Pre-requisites*: Have Trace Compass installed and opened. Have git, lttng and the Generic Callstack add-on on Trace Compass installed. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](https://tracecompass.org) for more information.
 
 - - -
 
@@ -56,7 +56,7 @@ In the previous task, you generated a trace of the `ls` command that contains al
 
 ![FlameChart](screenshots/flameChart.png "Trace Compass Flame Chart View")
 
-* The *Flame Graph View* looks similar to the *Flame Chart View* but it is different. Each box represents a function in the stack but the horizontal axis show the total aggregated duration of all calls to this function at a particular level. A more complete explanation is available [here](http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Description).
+* The *Flame Graph View* looks similar to the *Flame Chart View* but it is different. Each box represents a function in the stack but the horizontal axis show the total aggregated duration of all calls to this function at a particular level. A more complete explanation is available [here](https://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html#Description).
 
 ![FlameGraph](screenshots/flameGraph.png "Trace Compass Flame Graph View")
 
@@ -115,7 +115,7 @@ The trace was recorded using the lttng-ust libc wrapper, to trace calls to libc 
 
 * The *Potential Leaks vs time* view shows the same information as the *Potential Leaks* view, but as a scatter chart, so it's possible to visually see in time when exactly the memory was allocated.
 
-*Note* The potential leaks views are not meant to detect real memory leak. For that, tools like [Valgrind](http://valgrind.org/) are better suited and will tell you the exact line of code where the leak happened. But sometimes, knowing where the leaked memory was allocated does not help with the why it was not freed. In those cases, seeing it here with the full execution trace (callstacks, path to/from allocation), can help better put it in context. Also, adding a kernel trace to it, could add information, for instance show a failed system call around that time which may give a hint as to why it was not deallocated.
+*Note* The potential leaks views are not meant to detect real memory leak. For that, tools like [Valgrind](https://valgrind.org/) are better suited and will tell you the exact line of code where the leak happened. But sometimes, knowing where the leaked memory was allocated does not help with the why it was not freed. In those cases, seeing it here with the full execution trace (callstacks, path to/from allocation), can help better put it in context. Also, adding a kernel trace to it, could add information, for instance show a failed system call around that time which may give a hint as to why it was not deallocated.
 
 - - -
 
