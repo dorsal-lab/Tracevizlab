@@ -2,7 +2,7 @@
 
 In this lab, you will learn how we can visualize traces that contain custom events. We'll see how we can develop scripted analyzes and obtain meaningful views from custom trace points.  This features uses the [`EASE Framework`](https://www.eclipse.org/ease/) from Eclipse. Scripting can be used with any trace or experiment that can be opened with Trace Compass.
 
-*Pre-requisites*: Have Trace Compass installed and opened. Have the Trace Compass Scripting Javascript add-on installed. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](http://tracecompass.org) for more information.
+*Pre-requisites*: Have Trace Compass installed and opened. Have the Trace Compass Scripting Javascript add-on installed. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](https://tracecompass.org) for more information.
 
 - - -
 
@@ -552,7 +552,7 @@ After executing this script, the `Scripted Time Graph` view opens again, and we 
 
 * [Trace Compass Scripting Documentation](https://archive.eclipse.org/tracecompass.incubator/doc/org.eclipse.tracecompass.incubator.scripting.doc.user/User-Guide.html)
 * [Example EASE scripts](https://github.com/tahini/tracecompass-ease-scripting)
-* [Introduction to Trace Compass Scripting](http://versatic.net/tracecompass/introducingEase.html) blog post
+* [Introduction to Trace Compass Scripting](https://versatic.net/tracecompass/introducingEase.html) blog post
 * [Trace Compass Incubator and Scripting API](https://archive.eclipse.org/tracecompass.incubator/doc/javadoc/apidocs/)
 * [Trace Compass API](https://archive.eclipse.org/tracecompass/doc/javadoc/apidocs/)
 
