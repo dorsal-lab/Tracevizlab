@@ -1,16 +1,16 @@
-#undef TRACEPOINT_PROVIDER
-#define TRACEPOINT_PROVIDER ring
+#undef LTTNG_UST_TRACEPOINT_PROVIDER
+#define LTTNG_UST_TRACEPOINT_PROVIDER ring
 
-#undef TRACEPOINT_INCLUDE
-#define TRACEPOINT_INCLUDE "./ring_tp.h"
+#undef LTTNG_UST_TRACEPOINT_INCLUDE
+#define LTTNG_UST_TRACEPOINT_INCLUDE "./ring_tp.h"
 
-#if !defined(_RING_TP_H) || defined(TRACEPOINT_HEADER_MULTI_READ)
+#if !defined(_RING_TP_H) || defined(LTTNG_UST_TRACEPOINT_HEADER_MULTI_READ)
 #define _TP_H
 
 #include <lttng/tracepoint.h>
 
 /* An event */
-TRACEPOINT_EVENT(
+LTTNG_UST_TRACEPOINT_EVENT(
     /* Tracepoint provider name */
     ring,
     /* Tracepoint class name */
@@ -25,7 +25,7 @@ TRACEPOINT_EVENT(
     )
 )
 
-TRACEPOINT_EVENT(
+LTTNG_UST_TRACEPOINT_EVENT(
     ring,
     recv_exit,
     TP_ARGS(
@@ -36,7 +36,7 @@ TRACEPOINT_EVENT(
     )
 )
 
-TRACEPOINT_EVENT(
+LTTNG_UST_TRACEPOINT_EVENT(
     ring,
     send_entry,
     TP_ARGS(
@@ -48,7 +48,7 @@ TRACEPOINT_EVENT(
 )
 
 /* The tracepoint class */
-TRACEPOINT_EVENT_CLASS(
+LTTNG_UST_TRACEPOINT_EVENT_CLASS(
     /* Tracepoint provider name */
     ring,
     /* Tracepoint class name */
@@ -64,18 +64,20 @@ TRACEPOINT_EVENT_CLASS(
 )
 
 /* Trace point instance of the no_field class */
-TRACEPOINT_EVENT_INSTANCE(
+LTTNG_UST_TRACEPOINT_EVENT_INSTANCE(
     ring,
     no_field,
+    ring,
     recv_entry,
     TP_ARGS(
 
     )
 )
 
-TRACEPOINT_EVENT_INSTANCE(
+LTTNG_UST_TRACEPOINT_EVENT_INSTANCE(
     ring,
     no_field,
+    ring,
     send_exit,
     TP_ARGS(
 

@@ -34,19 +34,19 @@ If we look at the [original ring.c](code/ring.orig.c) file, we can identify loca
 The first step to instrument is to add the *tracepoint provider header file* that we will name `ring_tp.h`. This file contains the tracepoint definitions for all the tracepoints we'll insert. That's where we define their names, the fields to add and their types, etc.
 
 ```C
-#undef TRACEPOINT_PROVIDER
-#define TRACEPOINT_PROVIDER ring
+#undef LTTNG_UST_TRACEPOINT_PROVIDER
+#define LTTNG_UST_TRACEPOINT_PROVIDER ring
 
-#undef TRACEPOINT_INCLUDE
-#define TRACEPOINT_INCLUDE "./ring_tp.h"
+#undef LTTNG_UST_TRACEPOINT_INCLUDE
+#define LTTNG_UST_TRACEPOINT_INCLUDE "./ring_tp.h"
 
-#if !defined(_RING_TP_H) || defined(TRACEPOINT_HEADER_MULTI_READ)
+#if !defined(_RING_TP_H) || defined(LTTNG_UST_TRACEPOINT_HEADER_MULTI_READ)
 #define _TP_H
 
 #include <lttng/tracepoint.h>
 
 /* An event */
-TRACEPOINT_EVENT(
+LTTNG_UST_TRACEPOINT_EVENT(
     /* Tracepoint provider name */
     ring,
     /* Tracepoint class name */
@@ -61,7 +61,7 @@ TRACEPOINT_EVENT(
     )
 )
 
-TRACEPOINT_EVENT(
+LTTNG_UST_TRACEPOINT_EVENT(
     ring,
     recv_exit,
     TP_ARGS(
@@ -72,7 +72,7 @@ TRACEPOINT_EVENT(
     )
 )
 
-TRACEPOINT_EVENT(
+LTTNG_UST_TRACEPOINT_EVENT(
     ring,
     send_entry,
     TP_ARGS(
@@ -84,7 +84,7 @@ TRACEPOINT_EVENT(
 )
 
 /* The tracepoint class */
-TRACEPOINT_EVENT_CLASS(
+LTTNG_UST_TRACEPOINT_EVENT_CLASS(
     /* Tracepoint provider name */
     ring,
     /* Tracepoint class name */
@@ -100,18 +100,20 @@ TRACEPOINT_EVENT_CLASS(
 )
 
 /* Trace point instance of the no_field class */
-TRACEPOINT_EVENT_INSTANCE(
+LTTNG_UST_TRACEPOINT_EVENT_INSTANCE(
     ring,
     no_field,
+    ring,
     recv_entry,
     TP_ARGS(
 
     )
 )
 
-TRACEPOINT_EVENT_INSTANCE(
+LTTNG_UST_TRACEPOINT_EVENT_INSTANCE(
     ring,
     no_field,
+    ring,
     send_exit,
     TP_ARGS(
 
@@ -126,7 +128,7 @@ TRACEPOINT_EVENT_INSTANCE(
 Then we need to create the *tracepoint provider package source file*, which is a C source file that includes the *tracepoint provider header file* described above and is used to expand the tracepoint definition macros. That file will be named `ring_tp.c` and contains the simple following code:
 
 ```C
-#define TRACEPOINT_CREATE_PROBES
+#define LTTNG_UST_TRACEPOINT_CREATE_PROBES
 
 #include "ring_tp.h"
 ```
@@ -137,12 +139,12 @@ Now we are ready to instrument the application itself.
 
 ### Task 3: Instrument The Application
 
-To instrument the application, you should use the `tracepoint()` macro in the source code, with parameters that match the tracepoint definition. So to match the recv_exit tracepoint described above, the `tracepoint(ring, recv_exit, sourceId)` should be entered.
+To instrument the application, you should use the `lttng_ust_tracepoint()` macro in the source code, with parameters that match the tracepoint definition. So to match the recv_exit tracepoint described above, the `lttng_ust_tracepoint(ring, recv_exit, sourceId)` should be entered.
 
 But you first need to include the tracepoint definition file and make sure the macros are expanded. The following lines should be added at the beginning of the file.
 
 ```C
-#define TRACEPOINT_DEFINE
+#define LTTNG_UST_TRACEPOINT_DEFINE
 #include "ring_tp.h"
 ```
 
@@ -153,7 +155,7 @@ The code block below shows the diff between the original MPI ring application, a
  #include <stdio.h>
  #include <stdlib.h>
 
-+#define TRACEPOINT_DEFINE
++#define LTTNG_UST_TRACEPOINT_DEFINE
 +#include "ring_tp.h"
 +
  int main(int argc, char** argv) {
@@ -162,7 +164,7 @@ The code block below shows the diff between the original MPI ring application, a
    // Find out rank, size
    int world_rank;
    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
-+  tracepoint(ring, init, world_rank);
++  lttng_ust_tracepoint(ring, init, world_rank);
    int world_size;
    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
@@ -170,28 +172,28 @@ The code block below shows the diff between the original MPI ring application, a
   // Receive from the lower process and send to the higher process. Take care
   // of the special case when you are the first process to prevent deadlock.
   if (world_rank != 0) {
-+    tracepoint(ring, recv_entry);
++    lttng_ust_tracepoint(ring, recv_entry);
      MPI_Recv(&token, 1, MPI_INT, world_rank - 1, 0, MPI_COMM_WORLD,
               MPI_STATUS_IGNORE);
-+    tracepoint(ring, recv_exit, world_rank - 1);
++    lttng_ust_tracepoint(ring, recv_exit, world_rank - 1);
      printf("Process %d received token %d from process %d\n", world_rank, token,
             world_rank - 1);
    } else {
      // Set the token's value if you are process 0
      token = -1;
    }
-+  tracepoint(ring, send_entry, (world_rank + 1) % world_size);
++  lttng_ust_tracepoint(ring, send_entry, (world_rank + 1) % world_size);
    MPI_Send(&token, 1, MPI_INT, (world_rank + 1) % world_size, 0,
             MPI_COMM_WORLD);
-+  tracepoint(ring, send_exit);
++  lttng_ust_tracepoint(ring, send_exit);
    // Now process 0 can receive from the last process. This makes sure that at
    // least one MPI_Send is initialized before all MPI_Recvs (again, to prevent
    // deadlock)
    if (world_rank == 0) {
-+    tracepoint(ring, recv_entry);
++    lttng_ust_tracepoint(ring, recv_entry);
      MPI_Recv(&token, 1, MPI_INT, world_size - 1, 0, MPI_COMM_WORLD,
               MPI_STATUS_IGNORE);
-+    tracepoint(ring, recv_exit, world_size - 1);
++    lttng_ust_tracepoint(ring, recv_exit, world_size - 1);
      printf("Process %d received token %d from process %d\n", world_rank, token,
             world_size - 1);
    }
