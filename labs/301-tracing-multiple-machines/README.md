@@ -61,7 +61,7 @@ if [ -z "$USER" ] || [ -z "$SERVER" ] || [ -z "$URL" ]
 then
 	echo "Usage: ./traceClientServer <ServerUserName> <ServerHostOrIp> <serverURL>"
 	echo ""
-	echo "Example: ./traceClientServer myUser 5.5.5.2 http://www.polymtl.ca"
+	echo "Example: ./traceClientServer myUser 5.5.5.2 https://www.polymtl.ca"
 	exit 0
 fi
 
@@ -178,13 +178,13 @@ Now, this analysis was done only with kernel traces from the client and server. 
 - - -
 ### References:
 
-[Trace synchronization algorithm](http://dmct.dorsal.polymtl.ca/sites/dmct.dorsal.polymtl.ca/files/Jabbarifar-Dec6.pdf)
+[Trace synchronization algorithm](https://dmct.dorsal.polymtl.ca/sites/dmct.dorsal.polymtl.ca/files/Jabbarifar-Dec6.pdf)
 
 **Additional notes on synchronization**:
 
 Note that the trace synchronization algorithm used in Trace Compass computes a linear formula to transform the timestamps. It is only an approximation, sufficient for the analyzes, as computer clocks do not have this linear correlation and after a while, a drift may appear between the clocks that will invalidate the linear formula. It means that at some point, it will be impossible to compute a linear formula covering the whole duration of the traces and the synchronization will be marked as ``failed``. Depending on the hardware, the approximation here can be valid for trace durations varying from minutes to hours.
 
-When dealing with virtual machines, the synchronization approach described here is rarely successful even for traces of a few seconds. The drift factors enters in very soon. Luckily in those cases, other approaches are available. See [this blog post](http://versatic.net/tracecompass/synchronization/2018/01/15/synchronization-and-ntp.html) for more details.
+When dealing with virtual machines, the synchronization approach described here is rarely successful even for traces of a few seconds. The drift factors enters in very soon. Luckily in those cases, other approaches are available. See [this blog post](https://versatic.net/tracecompass/synchronization/2018/01/15/synchronization-and-ntp.html) for more details.
 
 - - -
 

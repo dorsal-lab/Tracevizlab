@@ -71,7 +71,7 @@ $ sudo apt install python3-lttngust
 
 ### References
 
-* [LTTng website](http://lttng.org)
+* [LTTng website](https://lttng.org)
 * [LTTng download installation instructions](https://lttng.org/download/)
 
 - - -

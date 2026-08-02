@@ -2,7 +2,7 @@
 
 In this lab, you will learn to open a system trace in Trace Compass and navigate the various views available. We will look at a simple system trace when running the `wget` command and see what kind of information we can get from it.
 
-*Pre-requisites*: Have Trace Compass installed and opened. You can follow the [Installing TraceCompass](../006-installing-tracecompass) lab or read the [TraceCompass web site](http://tracecompass.org) for more information. You also need a trace to open. You can take the trace you did in the [Record a kernel trace](../003-record-kernel-trace-lttng) lab or take the `tracing-wget/wget-first-call` trace from the tutorial's archive.
+*Pre-requisites*: Have Trace Compass installed and opened. You can follow the [Installing TraceCompass](../006-installing-tracecompass) lab or read the [TraceCompass web site](https://tracecompass.org) for more information. You also need a trace to open. You can take the trace you did in the [Record a kernel trace](../003-record-kernel-trace-lttng) lab or take the `tracing-wget/wget-first-call` trace from the tutorial's archive.
 
 - - -
 
@@ -89,7 +89,7 @@ This search & filter feature looks at the content of the tooltip of the states. 
 * `TID matches 5628` will highlight the thread with ID `5628`
 * `System_call matches .*` will highlight all state with system calls (they are visible only when zoomed)
 
-More information on this filtering can be found [here](http://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Main-Features.html#Filtering_Time_Events_in_Time_Graph_Views).
+More information on this filtering can be found [here](https://archive.eclipse.org/tracecompass/doc/stable/org.eclipse.tracecompass.doc.user/Trace-Compass-Main-Features.html#Filtering_Time_Events_in_Time_Graph_Views).
 
 - - -
 

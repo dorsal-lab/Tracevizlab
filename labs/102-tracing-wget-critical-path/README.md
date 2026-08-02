@@ -4,24 +4,24 @@ In this lab, you will learn to view the critical path of a thread from the syste
 
 ![KernelWaitAnalysisDjango](screenshots/kernelWaitAnalysisDjango.png "Trace Compass Kernel Wait Analysis")
 
-*Pre-requisites*: Have Trace Compass installed and opened. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](http://tracecompass.org) for more information. You also need to know how to record a trace and open it in Trace Compass. You can learn that by doing the [Record a kernel trace](../003-record-kernel-trace-lttng/) lab and the [Trace Navigation in Trace Compass](../101-analyze-system-trace-in-tracecompass/).
+*Pre-requisites*: Have Trace Compass installed and opened. You can follow the [Installing TraceCompass](../006-installing-tracecompass/) lab or read the [TraceCompass web site](https://tracecompass.org) for more information. You also need to know how to record a trace and open it in Trace Compass. You can learn that by doing the [Record a kernel trace](../003-record-kernel-trace-lttng/) lab and the [Trace Navigation in Trace Compass](../101-analyze-system-trace-in-tracecompass/).
 
 - - -
 
 ### Task 1: Recording two executions of wget
 
-For this lab, we will look at 2 executions of the `wget` command. The traces can be recorded using [lttng-record-trace](https://github.com/tahini/lttng-utils)
+For this lab, we will look at 2 executions of the `wget` command. The traces can be recorded using [lttng-record-trace](https://github.com/dorsal-lab/lttng-utils)
 or lttng directly to trace the command:
 
 ```
-$ lttng-record-trace wget http://www.dorsal.polymtl.ca
+$ lttng-record-trace wget https://www.dorsal.polymtl.ca
 ```
 or
 ```
 $ lttng create
 $ lttng enable-event -k -a
 $ lttng start
-$ wget http://www.dorsal.polymtl.ca
+$ wget https://www.dorsal.polymtl.ca
 $ lttng destroy
 ```
 

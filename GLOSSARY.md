@@ -150,7 +150,7 @@ Tracing the execution of a program in user space. While some tracers generate a 
 
 [^1]: https://lttng.org/docs/
 [^2]: Gebai, M. & Dagenais, M. R. (2018). Survey and analysis of Kernel and userspace tracers on Linux : design, implementation, and overhead. ACM Computing Surveys, 51(2), 26:1-26:33. doi:10.1145/3158644
-[^3]: http://www.linfo.org/kernel.html
+[^3]: https://www.linfo.org/kernel.html
 [^4]: Fournier, Q., Aloise, D., Azhari, S.V., & Tetreault, F. (2021). On Improving Deep Learning Trace Analysis with System Call Arguments. 2021 IEEE/ACM 18th International Conference on Mining Software Repositories (MSR), 120-130.
 [^5]: Jamsek, D. A. (2009). Designing and optimizing compute kernels on NVIDIA GPUs. 2009 Asia and South Pacific Design Automation Conference, 224–229. doi:10.1109/ASPDAC.2009.4796484
 [^6]: https://opentelemetry.io/docs/concepts/what-is-opentelemetry/

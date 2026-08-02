@@ -2,7 +2,7 @@
 
 In this lab, you will learn how to instrument, compile and trace your own application using LTTng userspace instrumentation. We'll instrument a simple C MPI application doing message passing between threads.
 
-*Pre-requisites*: Have Trace Compass installed and opened. Have lttng-ust installed, most notably the `liblttng-ust-dev` package. You can follow the [Install LTTng on Ubuntu](../001-instal-lttng-on-ubuntu/) lab or read the [LTTng web site](http://lttng.org) for more information.
+*Pre-requisites*: Have Trace Compass installed and opened. Have lttng-ust installed, most notably the `liblttng-ust-dev` package. You can follow the [Install LTTng on Ubuntu](../002-install-lttng-on-ubuntu/) lab or read the [LTTng web site](https://lttng.org) for more information.
 
 *Note*: If you do not want to instrument the application and go straight to the analysis part for custom traces, you can directly go to the [scripted analysis for custom instrumentation](../204-scripted-analysis-for-custom-instrumentation) lab and use the trace provided with this tutorial.
 
@@ -17,7 +17,7 @@ $ git clone https://github.com/wesleykendall/mpitutorial.git
 $ cd mpitutorial/tutorials/mpi-send-and-receive/code
 ```
 
-The file to instrument will be the *ring.c* file. For more information on instrumenting applications, you can read the [complete documentation for instrumenting C/C++ applications with LTTng](https://lttng.org/docs/v2.10/#doc-c-application).
+The file to instrument will be the *ring.c* file. For more information on instrumenting applications, you can read the [complete documentation for instrumenting C/C++ applications with LTTng](https://lttng.org/docs/v2.13/#doc-c-application).
 
 If we look at the [original ring.c](code/ring.orig.c) file, we can identify locations to instrument. We should instrument the following locations:
 

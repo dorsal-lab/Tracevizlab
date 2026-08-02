@@ -75,13 +75,13 @@ $ lttng destroy
 
 ### Task 3: Use a utility script to trace
 
-The [lttng-utils](https://github.com/tahini/lttng-utils) script can be used to trace instead of the commands of the previous task. First, get and install the script
+The [lttng-utils](https://github.com/dorsal-lab/lttng-utils) script can be used to trace instead of the commands of the previous task. First, get and install the script
 
 ```
-$ sudo pip3 install --upgrade git+https://github.com/tahini/lttng-utils.git@master
+$ sudo pip3 install --upgrade git+https://github.com/dorsal-lab/lttng-utils.git@master
 ```
 
-See the [README](https://github.com/tahini/lttng-utils#readme) for more install options. Once installed, you can just run the trace record script with the command to run. For instance, to reproduce the same result as the previous task, simply do
+See the [README](https://github.com/dorsal-lab/lttng-utils#readme) for more install options. Once installed, you can just run the trace record script with the command to run. For instance, to reproduce the same result as the previous task, simply do
 
 ```
 $ lttng-record-trace wget https://lttng.org
@@ -103,8 +103,8 @@ $ rsync -avz <user>@<traced.host>:</path/to/trace/dir> traces/
 
 ### References
 
-* [LTTng user documentation](http://lttng.org/docs)
-* [lttng-utils](https://github.com/tahini/lttng-utils) tracing helper documentation
+* [LTTng user documentation](https://lttng.org/docs)
+* [lttng-utils](https://github.com/dorsal-lab/lttng-utils) tracing helper documentation
 
 - - -
 

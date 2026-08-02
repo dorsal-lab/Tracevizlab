@@ -6,27 +6,27 @@ In this lab, you will install Trace Compass on the machine you'll use to view th
 
 - - -
 
-### Task 1: Install Java > 11
+### Task 1: Install Java 17
 
 #### On Ubuntu machines
 
-Trace Compass is an Eclipse-based application and needs at least Java 11 to run. Make sure you have the correct version.
+Trace Compass is an Eclipse-based application and needs at least Java 17 to run. Make sure you have the correct version.
 
 ```
 $ java -version
-openjdk version "11.0.11" 2021-04-20
-OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.18.04)
-OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.18.04, mixed mode, sharing)
+openjdk version "17.0.10" 2024-01-16
+OpenJDK Runtime Environment (build 17.0.10+7-Ubuntu-120.04.1)
+OpenJDK 64-Bit Server VM (build 17.0.10+7-Ubuntu-120.04.1, mixed mode, sharing)
 ```
 
 If the java command is not found or you have an older version of java installed, you need to install java. On an ubuntu machine, it would be
 
 ```
-$ sudo apt install openjdk-11-jre
+$ sudo apt install openjdk-17-jre
 $ java -version
-openjdk version "11.0.11" 2021-04-20
-OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.18.04)
-OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.18.04, mixed mode, sharing)
+openjdk version "17.0.10" 2024-01-16
+OpenJDK Runtime Environment (build 17.0.10+7-Ubuntu-120.04.1)
+OpenJDK 64-Bit Server VM (build 17.0.10+7-Ubuntu-120.04.1, mixed mode, sharing)
 ```
 
 If the version is still not correct, you may need to update your default java version using the following command
@@ -35,13 +35,13 @@ If the version is still not correct, you may need to update your default java ve
 $ sudo update-alternatives --config java
 There are 2 choices for the alternative java (providing /usr/bin/java).
 
-  Selection    Path                                            Priority   Status
+  Selection    Path                                         Priority   Status
 ------------------------------------------------------------
-* 0            /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java      1101      auto mode
-  1            /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java      1101      manual mode
-  2            /usr/lib/jvm/java-11-openjdk-amd64/jre/bin/java   1111      manual mode
+  0            /usr/lib/jvm/java-17-openjdk-amd64/bin/java   1711      auto mode
+* 1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java   1111      manual mode
+  2            /usr/lib/jvm/java-17-openjdk-amd64/bin/java   1711      manual mode
 
-Press <enter> to keep the current choice[*], or type selection number: **2**
+Press <enter> to keep the current choice[*], or type selection number: **0**
 ```
 
 - - -
@@ -52,13 +52,13 @@ In Windows and MacOs, download Temurin OpenJDK from Eclipse Adoptium [here](http
 
 ### Task 2: Get Trace Compass
 
-Go to the [Trace Compass web site](http://tracecompass.org) and click on the big blue button to download the latest release of Trace Compass.
+Go to the [Trace Compass web site](https://tracecompass.org) and click on the big blue button to download the latest release of Trace Compass.
 
 Then extract the content of the downloaded archive and simply start trace-compass from the extracted folder
 
 ```
 $ cd ~/Downloads
-$ tar xf trace-compass-8.0.0-20220620-0814-linux.gtk.x86_64.tar.gz
+$ tar xf trace-compass-9.2.0-20231207-0916-linux.gtk.x86_64.tar.gz
 $ cd trace-compass
 $ ./tracecompass
 ```

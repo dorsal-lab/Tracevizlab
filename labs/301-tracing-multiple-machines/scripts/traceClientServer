@@ -7,7 +7,7 @@ if [ -z "$USER" ] || [ -z "$SERVER" ] || [ -z "$URL" ]
 then
 	echo "Usage: ./traceClientServer <ServerUserName> <ServerHostOrIp> <serverURL>"
 	echo ""
-	echo "Example: ./traceClientServer myUser 5.5.5.2 http://www.polymtl.ca"
+	echo "Example: ./traceClientServer myUser 5.5.5.2 https://www.polymtl.ca"
 	exit 0
 fi
 
